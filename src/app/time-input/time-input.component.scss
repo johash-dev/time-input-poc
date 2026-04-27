@@ -1,0 +1,236 @@
+.time-input-root {
+  position: relative;
+}
+
+/* Field (match reference: clock icon, green focus ring, compact) */
+.time-field {
+  --ti-border: #dfe3e8;
+  --ti-focus: #79b68c;
+  --ti-text: #2f3a40;
+  --ti-muted: #8a97a3;
+  --ti-ok: #ca168d;
+
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  border: 1px solid var(--ti-border);
+  border-radius: 8px;
+  background: #fff;
+  height: 62px;
+  width: 100%;
+  max-width: 170px;
+  padding: 6px 6px 6px 4px;
+}
+
+.time-field--fluid {
+  max-width: none;
+}
+
+.time-field:focus-within {
+  border-color: var(--ti-focus);
+  box-shadow: 0 0 0 4px rgba(121, 182, 140, 0.25);
+}
+
+.time-field--invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15);
+}
+
+.time-field--disabled {
+  background: #eef1f4;
+  border-color: #e1e6eb;
+  box-shadow: none;
+}
+
+.time-field--disabled:focus-within {
+  border-color: #e1e6eb;
+  box-shadow: none;
+}
+
+.time-field--disabled .time-field__label {
+  color: #7f8b96;
+}
+
+.time-field--disabled .time-field__input {
+  color: #9aa6b2;
+}
+
+.time-field--disabled .time-field__input::placeholder {
+  color: #a8b3bd;
+}
+
+.time-field--disabled .time-field__iconBtn {
+  cursor: not-allowed;
+}
+
+.time-field--disabled .time-field__iconBtn:hover:enabled {
+  background: transparent;
+}
+
+.time-field__iconBtn {
+  display: grid;
+  place-items: center;
+  color: #4aa06a;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  margin-left: 2px;
+}
+
+.time-field__iconBtn:hover:enabled {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.time-field__iconBtn:focus-visible {
+  outline: 2px solid var(--ti-focus);
+  outline-offset: 2px;
+}
+
+.time-field__content {
+  display: grid;
+  gap: 2px;
+  padding: 2px 2px 2px 0;
+}
+
+.time-field__label {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--ti-muted);
+  user-select: none;
+}
+
+.time-field__asterisk {
+  color: #dc3545;
+  margin-left: 2px;
+}
+
+.time-field__input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--ti-text);
+  background: transparent;
+}
+
+.time-field__input::placeholder {
+  color: var(--ti-muted);
+}
+
+.time-field__error {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #dc3545;
+}
+
+/* Picker panel (3 columns + footer buttons) */
+.time-picker-panel {
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  max-width: 170px;
+  height: 224px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #e6eaee;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.time-picker-panel--fluid {
+  max-width: none;
+}
+
+.time-picker-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: #f3f7f3;
+}
+
+.time-col {
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.time-col:last-child {
+  border-right: 0;
+}
+
+.time-col__header {
+  font-size: 12px;
+  color: #6c757d;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.time-col__list {
+  height: 182px;
+  overflow: auto;
+  background: #fff;
+}
+
+.time-col__item {
+  width: 100%;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  padding: 6px 6px;
+  font-size: 13px;
+  color: #253238;
+}
+
+.time-col__item:hover:enabled {
+  background: rgba(74, 160, 106, 0.08);
+}
+
+.time-col__item.is-selected {
+  background: rgba(74, 160, 106, 0.16);
+  font-weight: 600;
+}
+
+.time-col__item:disabled {
+  color: #c0c7cf;
+}
+
+.time-picker-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.btn-cancel,
+.btn-ok {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 6px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  min-width: 72px;
+}
+
+.btn-ok {
+  margin-left: auto;
+}
+
+.btn-cancel {
+  background: #e9ecef;
+  color: #111;
+}
+
+.btn-ok {
+  background: var(--ti-ok);
+  color: #fff;
+}
